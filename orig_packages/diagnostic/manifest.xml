@@ -1,0 +1,19 @@
+<package>
+  <description brief="diagnostic">
+
+     diagnostic permet de tester et de controler de nombreuses sources de problème
+
+  </description>
+  <author>Quentin</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/test_robot</url>
+  <depend package="rospy"/>
+  <depend package="robot_monitor"/>
+  <depend package="diagnostic_aggregator"/>
+  <rosdep name="acpi"/>
+  <rosdep name="sysstat"/>
+
+</package>
+
+

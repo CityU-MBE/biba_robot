@@ -1,0 +1,3 @@
+<launch>
+ <node name="map_server" pkg="map_server" type="map_server" args="path_to_map_file.yaml"/> 
+</launch>

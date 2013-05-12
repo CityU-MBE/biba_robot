@@ -1,0 +1,6 @@
+<launch>
+    
+    <node name="ether_camera" pkg="ait_ether_camera_driver" type="WrapperVBox">
+    </node>
+
+</launch>

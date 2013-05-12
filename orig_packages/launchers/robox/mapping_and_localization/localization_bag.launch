@@ -1,0 +1,6 @@
+<launch>
+    <include file="./pointCloudToLaserScan.launch" />
+    <include file="./map.launch" />
+    <include file="./play_bag_file.launch" />
+    <include file="./amcl_diff.launch" />
+</launch>

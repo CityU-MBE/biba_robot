@@ -1,0 +1,14 @@
+<launch>
+	
+	<node name="joy" pkg="joy" type="joy_node" >
+		<param name="joy/dev" value="/dev/input/js1" />
+		<param name="joy/autorepeat_rate" value="1.0" />
+	</node>
+
+	<node name="teleop" pkg="teleoperation" type="teleop_joystick.py" args="-n james"/>
+	<node name="james" pkg="bblos-driver" type="bblos_driver.py" args="-h 192.168.5.1">
+		<param name="james/max_linear_vel" value="0.3" />
+		<param name="james/max_angular_vel" value="0.5" />
+	</node>
+
+</launch>

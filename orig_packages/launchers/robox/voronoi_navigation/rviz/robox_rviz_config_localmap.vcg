@@ -1,0 +1,107 @@
+Background\ ColorR=0
+Background\ ColorG=0
+Background\ ColorB=0
+Fixed\ Frame=/laser
+Target\ Frame=/laser
+ClosestSegments.Enabled=1
+ClosestSegments.Marker\ Topic=/Marker/ClosestMarker
+ClosestSegments.segments=1
+Grid.Alpha=0.5
+Grid.Cell\ Size=1
+Grid.ColorR=1
+Grid.ColorG=1
+Grid.ColorB=1
+Grid.Enabled=1
+Grid.Line\ Style=0
+Grid.Line\ Width=0.03
+Grid.Normal\ Cell\ Count=0
+Grid.OffsetX=0
+Grid.OffsetY=0
+Grid.OffsetZ=0
+Grid.Plane=0
+Grid.Plane\ Cell\ Count=14
+Grid.Reference\ Frame=<Fixed Frame>
+Obstacle\ Grid.Alpha=1
+Obstacle\ Grid.ColorR=0.1
+Obstacle\ Grid.ColorG=1
+Obstacle\ Grid.ColorB=0
+Obstacle\ Grid.Enabled=1
+Obstacle\ Grid.Topic=/LocalMap/costmap/obstacles
+Point\ Cloud.Alpha=1
+Point\ Cloud.Autocompute\ Intensity\ Bounds=1
+Point\ Cloud.Billboard\ Size=0.01
+Point\ Cloud.Channel=0
+Point\ Cloud.Decay\ Time=0
+Point\ Cloud.Enabled=1
+Point\ Cloud.Max\ ColorR=1
+Point\ Cloud.Max\ ColorG=1
+Point\ Cloud.Max\ ColorB=1
+Point\ Cloud.Max\ Intensity=0
+Point\ Cloud.Min\ ColorR=0
+Point\ Cloud.Min\ ColorG=0
+Point\ Cloud.Min\ ColorB=0
+Point\ Cloud.Min\ Intensity=0
+Point\ Cloud.Selectable=1
+Point\ Cloud.Style=1
+Point\ Cloud.Topic=/robox/laser
+SegmentsInSectors.Enabled=1
+SegmentsInSectors.Marker\ Topic=/Marker/SectorMarker
+SegmentsInSectors.Sector1=1
+SegmentsInSectors.Sector3=1
+TF.All\ Enabled=1
+TF.Enabled=1
+TF.Show\ Arrows=1
+TF.Show\ Axes=1
+TF.Show\ Names=1
+TF.Update\ Rate=0
+TrackedSegments.Enabled=1
+TrackedSegments.Marker\ Topic=/Marker/TrackedMarker
+TransformedTrackedSegments.Enabled=1
+TransformedTrackedSegments.Marker\ Topic=/Marker/TransformedTrackedMarker
+VISegments.Enabled=1
+VISegments.Marker\ Topic=/Marker/VISMarker
+Tool\ 2D\ Nav\ GoalTopic=goal
+Tool\ 2D\ Pose\ EstimateTopic=initialpose
+Camera\ Type=rviz::FixedOrientationOrthoViewController
+Camera\ Config=199.895 -0.0972393 24.9852 -0.114098 -0.707107 -4.54825e-07 -5.21549e-07 0.707107
+Property\ Grid\ State=selection=VISegments.Enabled;expanded=TF./laser/laser,TF./robot_base/robot_base,TF./world/world,TF.Enabled.TF.Tree,TF./worldTree/world,TF./robot_baseTree/robot_base,TF./laserTree/laser,SegmentsInSectors.Enabled.SegmentsInSectors.StatusTopStatus,SegmentsInSectors.Enabled.SegmentsInSectors.Namespaces,ClosestSegments.Enabled.ClosestSegments.Namespaces,TrackedSegments.Enabled.TrackedSegments.StatusTopStatus,TrackedSegments.Enabled.TrackedSegments.Namespaces,TransformedTrackedSegments.Enabled.TransformedTrackedSegments.StatusTopStatus,TransformedTrackedSegments.Enabled.TransformedTrackedSegments.Namespaces,VISegments.Enabled.VISegments.StatusTopStatus,VISegments.Enabled.VISegments.Namespaces;scrollpos=0,0;splitterpos=133,266;ispageselected=1
+[Display0]
+Name=Grid
+Package=rviz
+ClassName=rviz::GridDisplay
+[Display1]
+Name=TF
+Package=rviz
+ClassName=rviz::TFDisplay
+[Display2]
+Name=Point Cloud
+Package=rviz
+ClassName=rviz::PointCloudDisplay
+[Display3]
+Name=SegmentsInSectors
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display4]
+Name=ClosestSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display5]
+Name=TrackedSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display6]
+Name=TransformedTrackedSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display7]
+Name=VISegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display8]
+Name=Obstacle Grid
+Package=rviz
+ClassName=rviz::GridCellsDisplay
+[TF.]
+laserEnabled=1
+robot_baseEnabled=1
+worldEnabled=1

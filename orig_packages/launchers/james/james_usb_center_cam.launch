@@ -1,0 +1,7 @@
+<launch>
+
+    <param name="ait_dir" value="$(find ait_usb_camera_driver)" />
+    <!--<param name="frame_id" value="stereo_mid_link" /> -->
+    <node name="parCam" pkg="ait_usb_camera_driver" type="driver_with_esvs" args="004 0 /stereo_mid_link"  respawn="false"  /> 
+
+</launch>

@@ -1,0 +1,46 @@
+<launch>
+
+    <param name="display" type="int" value="0"/>
+    <param name="framerate" type="double" value="15"/>
+    <param name="mode" value="MODE_640x480_MONO" />
+    <!--  <param name="frame_id" value="omnicam" /> -->
+    <!--    <node name="cameradc1394" pkg="cameradc1394" type="cameradc1394"> -->
+    <node name="cameradc1394" pkg="getdata" type="cameradc1394">
+        <remap from="image" to="omni_image"/>
+        <remap from="image_raw" to="omni_image_raw"/>
+	</node>
+
+    <node name="unwrappwer" pkg="unwrapper" type="unwrapper" >
+        <param name="unwrapped_width" value="1204" />
+        <param name="unwrapped_height" value="174" />
+        <param name="rmax" value="226" />
+        <param name="rmin" value="52.0" />
+        <param name="xcp" value="327.0" />
+        <param name="ycp" value="244.0" />
+        <param name="Phy" value="-1.57" />
+        <param name="ViewImage" value="false" type="bool" />
+        <param name="image" value="/omni_image" />
+    </node>
+
+
+<!--	<node name="gpu_sift_extractor_" pkg="gpu_sift_extractor" type="gpu_sift_extractor" args="image:=/unwrapper/unwrapped"> 
+    </node> -->
+
+<!--	<node name="gpu_sift_extractor5" pkg="gpu_sift_extractor" type="gpu_sift_extractor5" args="image:=/unwrapper/unwrapped"/> -->
+
+<!--	<node name="gpu_sift_extractor_base" pkg="gpu_sift_extractor" type="gpu_sift_extractor" args="image:=/unwrapped_base">
+		<param name="image" value="/unwrapped_base" />
+    </node>
+-->
+	<node name="tfmap" pkg="homing" type="HomingTfMap.py" />
+
+<!--
+	<node name="homing_eval" pkg="homing" type="homing_eval" > 
+		<param name="sift" value="/gpu_sift_extractor" />
+		<param name="cmd" value="/obs_vel_filter/cmd_vel" />
+		<param name="odom" value="/james/odom" />
+		<param name="image" value="/unwrapper/unwrapped" />
+		<param name="arbiter" value="/arbiter" />
+	</node>
+-->
+</launch>

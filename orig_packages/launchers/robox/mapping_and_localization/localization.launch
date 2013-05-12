@@ -1,0 +1,5 @@
+<launch>
+    <include file="./pointCloudToLaserScan.launch" />
+    <include file="./map.launch" />
+    <include file="./amcl_diffROS.launch" />
+</launch>

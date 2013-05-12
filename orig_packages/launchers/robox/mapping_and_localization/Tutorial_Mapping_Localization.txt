@@ -1,0 +1,42 @@
+
+This turorial explain how to run the mapping or the localization for the robox.
+
+/// Mapping in real time
+The mapping use the slam_gmapping package provide by ROS. It require a transformation of the laser data from a PointCloud to a LaserScan. This is done by the node pointCloudToLaserScan. 
+1) launch the robox platform with the ros launch script:
+$ roslaunch onBootROS.launch
+2) launch the mapping with
+$ roslaunch mapping.launch
+3) Save map in file mymap
+$ rosrun map_server map_saver -f mymap
+
+
+/// Localization in real time
+The localization use the amcl package provide by ROS and required a map
+1) provide the map path in the launch file map.launch
+2) launch the robox platform with the ros launch script:
+$ roslaunch onBootROS.launch
+3) launch the mapping with
+$ roslaunch mapping.launch
+
+/// Mapping and localization from bag file
+Variant 1)
+1)Set the parameter use_sim_tim to true:
+$ rosparam set use_sim_time true
+2) Replay a back file name mybag.bag
+$ rosbag play --clock  mybag.bag 
+3) Same has in real time without runing the robox
+Variant 2) 
+Run it with a single launch file.
+1) Set the path to the log file in play_bag_file.launch
+2) Run localization_bag.launch or mapping_bag.launch
+
+
+
+/// Record a bag file named mybag
+rosbag record -a -O "mybag"
+
+/// Vizualisation
+rviz can be use for vizualisation
+rosrun rviz rviz
+

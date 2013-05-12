@@ -1,0 +1,16 @@
+<launch>
+  
+  <!--
+  <node pkg="tf" type="static_transform_publisher" name="laser_frame_broadcaster" args="0 0 0 0 0 0 world robot_base 100" />
+  -->
+
+  <node pkg="vn_runsmp" type="testpointcloud" name="testpointcloud_publisher">
+      <param name="pub_freq" value="1" />
+      <param name="DataFileName" value="$(find vn_runsmp)/data/ASLRawScans-Selected-100.txt" />
+      <param name="loop" value="true" />
+      <param name="topic_name" value="/robox/laser" />
+      <param name="frame_id" value="laser" />
+  </node>
+  <include file="./robox_tf.launch" />
+
+</launch>

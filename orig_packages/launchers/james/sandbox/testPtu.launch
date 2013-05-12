@@ -1,0 +1,11 @@
+<launch>
+
+	
+	<node name="joy" pkg="joy" type="joy_node" >
+		<param name="joy_node/dev" value="/dev/input/js0" />
+		<param name="joy_node/coalesce_interval" value="0.01" />
+	</node>
+
+	<node name="joy_to_ptu" pkg="ptu_joy_test" type="joy_to_ptu_node.py" />
+	<node name="ptu46_175" pkg="ptu46_175" type="ptu_node.py"/>
+</launch>

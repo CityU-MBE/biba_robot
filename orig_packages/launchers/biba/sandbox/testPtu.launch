@@ -1,0 +1,19 @@
+<launch>
+
+	
+	<node name="joy" pkg="joy" type="joy_node" >
+    <param name="dev" value="/dev/input/by-id/usb-Logitech_Logitech_Cordless_RumblePad_2-joystick" />
+		<param name="joy_node/coalesce_interval" value="0.01" />
+	</node>
+
+	<node name="joy_to_ptu" pkg="ptu_joy_test" type="joy_to_ptu_node.py" />
+	<node name="ptu46_175" pkg="ptu46_175" type="ptu_node.py"/>
+
+    <node name="ptu_base_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="  0.00    0.00    0.81    0.00    0.00    0.00    world  ptu_base    100" />
+
+    <node  name="stero_tf_broadcaster" pkg="tf" type="static_transform_publisher" 
+		args="  0.00    0.00    0.04    0.00    0.00    0.00    ptu_head    stereo      100" >
+	</node>
+
+</launch>

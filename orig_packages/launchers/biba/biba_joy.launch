@@ -1,0 +1,9 @@
+<launch>
+    <group ns="biba">
+    <node name="biba_joy" pkg="joy" type="joy_node" >
+        <param name="dev" value="/dev/input/by-id/usb-Logitech_Logitech_Cordless_RumblePad_2-joystick" />
+        <!--param name="dev" value="/dev/input/js1" /-->
+        <param name="autorepeat_rate" value="10.0" /> 
+    </node>
+    </group>
+</launch>

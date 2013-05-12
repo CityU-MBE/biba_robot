@@ -1,0 +1,22 @@
+<launch>
+
+<!-- 
+*************** Transformation frames ***************
+Note: need to have the node bblos-driver(bblos_driver)
+which provide:
+/world          -> /robot_base
+
+and ptu46_175(ptu_node) which provide:
+/ptu_base       -> /ptu_pan_joint
+/ptu_pan_joint  -> /ptu_tilt_joint
+/ptu_tilt_joint -> /ptu_head
+-->
+    
+    <node name="ptu_base_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="  0.00    0.00    0.81    0.00    0.00    0.00    world  ptu_base    100" />
+
+    <node  name="stero_tf_broadcaster" pkg="tf" type="static_transform_publisher" 
+		args="  0.00    0.00    0.04    0.00    0.00    0.00    ptu_head    stereo      100" >
+	</node>
+
+</launch>

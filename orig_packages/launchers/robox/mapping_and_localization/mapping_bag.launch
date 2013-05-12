@@ -1,0 +1,5 @@
+<launch>
+    <include file="./pointCloudToLaserScan.launch" />
+    <include file="./play_bag_file.launch" />
+    <include file="./gmapping.launch" />
+</launch>

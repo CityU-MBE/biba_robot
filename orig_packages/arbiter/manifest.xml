@@ -1,0 +1,19 @@
+<package>
+  <description brief="arbiter">
+
+     arbiter
+
+  </description>
+  <author>Cedric Pradalier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/arbiter</url>
+  <export>
+    <cpp cflags="-I${prefix}/srv/cpp -I${prefix}/srv_gen/cpp" />
+  </export>
+  <depend package="rospy"/>
+  <depend package="geometry_msgs"/>
+
+</package>
+
+

@@ -1,0 +1,8 @@
+<launch>
+  <include file="./gmapping.launch"/>
+
+  <node pkg="map_server" type="map_saver" name="map_saver"/>
+
+  <include file="./nav.launch"/>
+
+</launch>

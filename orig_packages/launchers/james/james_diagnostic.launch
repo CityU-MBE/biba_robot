@@ -1,0 +1,22 @@
+<launch>
+  <node name="diagnostic" pkg="diagnostic" type="diagnostic.py" args="--diag-hostname=james" >
+    <param name="check_ipmi_tool" value="false" type="bool" />
+    <param name="enforce_clock_speed" value="false" type="bool" />
+    <!--  <param name="check_nfs" value="true" type="bool" />   -->
+    <param name="ip_list" value="[10.0.1.1 , 10.0.1.10 ]" />
+    <param name="dev_list" value="[ /dev/input/by-id/usb-Logitech_Logitech_Cordless_RumblePad_2-joystick , /dev/ttyUSB0 , /dev/video1394/0 ]" type="str"/>
+    <!--  In ip_list and dev_list, always have a space between the last member and the ]   -->
+
+  </node>
+
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator">
+    <rosparam command="load" file="$(find diagnostic)/TestRobot.yaml" />
+
+  </node>
+
+  <node pkg="robot_monitor" type="robot_monitor" 
+	name="robot_monitor">
+    
+  </node>  
+
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+
+    <node name="costmap_2d" pkg="costmap_2d" type="costmap_2d_node">
+        <rosparam file="./biba_costmap_setup.yaml" command="load" ns="costmap" />
+    </node>
+
+</launch>

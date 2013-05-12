@@ -1,0 +1,7 @@
+<launch>
+    
+    <node name="ptu46_175" pkg="ptu46_175" type="ptu_node.py">
+        <param name="port" value="/dev/ttyUSB0" />
+    </node>
+
+</launch>

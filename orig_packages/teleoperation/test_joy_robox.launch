@@ -1,0 +1,24 @@
+<launch>
+	
+	<node name="joy" pkg="joy" type="joy_node" >
+		<param name="joy/dev" value="/dev/input/js0" />
+		<param name="joy/autorepeat_rate" value="1.0" />
+	</node>
+
+	<node name="teleop" pkg="teleoperation" type="teleop_joystick.py" args="-n robox"/>
+	<node name="robox" pkg="bblos-driver" type="bblos_driver.py" >
+		<param name="max_linear_vel" value="0.4" />
+		<param name="max_angular_vel" value="0.6" />
+	</node>
+
+	<rosparam file="$(find bblos-driver)/roboxparam.yaml" command="load" />
+
+
+	<!-- Configuration for sensor positions-->
+	<node name="laser_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		  args="0.2 0 0.07 0 0 0 base_link laser_link 100" />
+	<node name="ptu_base_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		  args="0.11 0 0.65 0 0 0 base_link ptu_base_link 100" />
+	<node name="omni_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		  args="0.0 0 1.32 0 0 0 base_link omni_link 100" />
+</launch>

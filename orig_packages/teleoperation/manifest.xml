@@ -1,0 +1,17 @@
+<package>
+  <description brief="teleoperation">
+
+     teleoperation
+
+  </description>
+  <author>pavel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/teleoperation</url>
+  <rosdep name="pygame"/>
+  <depend package="rospy"/>
+  <depend package="geometry_msgs"/>
+  <depend package="joy"/>
+</package>
+
+

@@ -1,0 +1,42 @@
+<launch>
+	<param name="ait_dir" value="$(find ait_usb_camera_driver)" />
+	<param name="pioneer_dir" value="$(find pioneer3dx_driver)" />
+	<param name="joy/dev" value="/dev/input/js1" />
+	<param name="joy/autorepeat_rate" value="1.0" />
+	
+	<param name="pioneer/max_linear_vel" value="0.3" />
+	<param name="pioneer/max_angular_vel" value="0.5" />
+	
+	<param name="laser/frame_id" value="laser_frame" />
+	
+	<param name="frame_id" value="omni_frame" />
+	<param name="display" type="int" value="0"/>
+	<param name="framerate" type="double" value="15"/>
+  	<param name="mode" value="MODE_640x480_MONO"/> 
+	
+	
+	<param name="odom_broadcaster/robotName" value="pioneer" />
+	
+	<node name="joy" pkg="joy" type="joy_node" />
+	<node name="teleop" pkg="teleoperation" type="teleop_joystick.py" args="-n pioneer"/>
+	<node name="pioneer" pkg="pioneer3dx_driver" type="driver" />
+	<node name="stereocam_top" pkg="ait_usb_camera_driver" type="driver_with_esvs" args="007 0" />
+	<!--<node name="stereocam_base" pkg="ait_usb_camera_driver" type="driver_with_esvs" args="003 500" /> -->
+	
+	<!--<node name="omni" pkg="cameradc1394" type="cameradc1394" respawn="true"/> -->
+	
+	<!-- <node name="laser" pkg="hokuyo_node" type="hokuyo_node" respawn="true"/>
+	<node name="odom_broadcaster" pkg="odom_tf" type="odom_broadcaster.py" />  -->
+
+	<!-- Configuration for sensor positions-->
+	<node  name="stero_tf_broadcaster" pkg="tf" type="static_transform_publisher" 
+		args="0.075 0.075 1.23 0 0.63 0 odom camera_frame 100" />
+		
+	<node name="omni_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="0 0 0.59 0 0 0 odom omni_frame 100" />
+		
+	<node name="laser_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="0.195 0 0.025 3.1415 0 0 odom laser_frame 100" />	
+
+</launch>
+

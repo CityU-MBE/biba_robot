@@ -1,0 +1,13 @@
+<launch>
+   <!-- tf, joystick, bblos-driver -->
+   <include file="../robox_tf.launch" />
+   <include file="../robox_joy.launch" />
+   <include file="../robox_bblos.launch" />
+
+   <!-- voronoi navigation controller -->
+   <include file="smp/robox_vn_paper.launch" />
+
+   <!-- visualization -->
+   <include file="rviz/robox_rviz.launch" />
+    
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+	<node name="arbiter" pkg="arbiter" type="arbiter.py" >
+		<param name="max_linear_vel" value="0.5" />
+		<param name="max_angular_vel" value="0.5" />
+		<param name="input_manual" value="/robot/cmd_vel" />
+		<param name="input_auto" value="/control/cmd_vel" />
+		<param name="output" value="/pioneer/cmd_vel" />
+		<param name="select" value="1" />
+		<param name="timeout" value="1.0" />
+		<param name="max_acc_x" value="0.1" />
+		<param name="max_acc_z" value="0.1" />
+	</node>
+
+</launch>
+

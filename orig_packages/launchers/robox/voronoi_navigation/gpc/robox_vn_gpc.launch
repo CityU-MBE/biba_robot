@@ -1,0 +1,100 @@
+<launch>
+ 
+  <!-- ******************************************************************************************* -->
+  <!-- Voronoi Navigation Controller -->
+  <!-- ******************************************************************************************* -->
+
+  <!-- Parameters -->
+  <node pkg="vn_initparams" type="vn_initparams" name="initparams" />
+
+  
+  <!-- Costmap to visualize the walls  -->
+  <node name="LocalMap" pkg="costmap_2d" type="costmap_2d_node">
+      <rosparam file="smp/robox_vn_paper_costmap_params.yaml" command="load" ns="costmap" />
+  </node>
+
+
+  <!-- Preprocessing -->
+  <node pkg="vn_rungpc" type="vn_rungpc" name="RunGPC" >
+      <param name="PointCloudTopicName" value="/robox/laser" />
+      <param name="ControlInputTopicName" value="/Control_Input" />
+      <param name="doGPC" value="true" type="bool" />
+      <param name="doGnuplot" value="false" type="bool" />
+  </node>
+
+
+
+  <!-- Control Laws -->
+  <node pkg="vn_calccontrollaws" type="vn_calccontrollaws_node" name="Calccontrollaws_node" >
+      <param name="CmdVelTopicName" value="/robox/cmd_vel" />
+      <param name="isPublishingTrajectory" value="true" />
+      <param name="scale_x" value="0.02" />
+      <param name="RobotContour_width" value="0.03" />
+      <param name="Trajectory_width" value="0.04" />
+
+  </node>
+
+  <!-- ******************************************************************************************* -->
+  <!-- Visualization of the point clouds and segments in rviz -->
+  <!-- ******************************************************************************************* -->
+
+  <node pkg="vn_msgs" type="SegmentToMarker" name="SectorMarker" >
+      <param name="SegmentTopicName" value="/SMP/Segments" />
+      <param name="MarkerTopicName" value="/Marker/SectorMarker" />
+      <param name="mode" value="sector" />
+      <param name="scale_x" value="0.02" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="0.0" />
+  </node>
+
+
+  <node pkg="vn_msgs" type="SegmentToMarker" name="ClosestMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/ClosestSegments" />
+      <param name="MarkerTopicName" value="/Marker/ClosestMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="0.0" />
+  </node>	
+
+  <node pkg="vn_msgs" type="SegmentToMarker" name="TrackedMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/TrackedSegments" />
+      <param name="MarkerTopicName" value="/Marker/TrackedMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="0.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="1.0" />
+  </node>
+ 
+  <node pkg="vn_msgs" type="SegmentToMarker" name="TTSMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/TransformedTrackedSegments" />
+      <param name="MarkerTopicName" value="/Marker/TransformedTrackedMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="0.0" />
+      <param name="color_b" value="1.0" />
+  </node>
+
+  <node pkg="vn_msgs" type="SegmentToMarker" name="VISMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/VISegments" />
+      <param name="MarkerTopicName" value="/Marker/VISMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.04" />
+      <param name="color_a" value="0.5" />
+      <param name="color_r" value="0.0" />
+      <param name="color_g" value="0.0" />
+      <param name="color_b" value="0.0" />
+  </node>
+
+
+</launch>
+  
+ 

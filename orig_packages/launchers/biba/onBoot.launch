@@ -1,0 +1,26 @@
+<launch>
+    <include file="./biba_tf.launch" />
+    <include file="./biba_joy.launch" />
+    <include file="./biba_joy_to_vel.launch" />
+    <include file="./biba_bblos.launch" />
+    <include file="./biba_arbiter.launch" />
+    <include file="./biba_diagnostic.launch" />
+
+    <!--  stereocam -->
+    <include file="./biba_ether_camera.launch" />
+    <include file="./biba_camera_pointcloud.launch" /> 
+    <!-- TODO <include file="./james_groundplanedetektor.launch" /> -->
+
+    <!-- Obstacle avoidance -->
+    <include file="./biba_costmap.launch" /> 
+    <include file="./biba_obsAvoid.launch" />
+
+    <!--  ptu -->
+    <include file="./biba_filter_odom2ptu.launch" />
+    <include file="./biba_ptu.launch" />
+
+    <!--  omnicam -->
+    <include file="./biba_1394.launch" />
+
+    <!-- TODO: Stereo Point clouds -->
+</launch>

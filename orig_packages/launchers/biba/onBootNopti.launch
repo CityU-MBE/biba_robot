@@ -1,0 +1,17 @@
+<launch>
+    <include file="./biba_tf.launch" />
+    <!--<include file="./biba_joy.launch" />-->
+    <!--<include file="./biba_joy_to_vel.launch" />-->
+    <include file="./biba_bblosROS.launch" />
+    <!--<include file="./biba_arbiter.launch" />-->
+    <!--<include file="./biba_diagnostic.launch" />-->
+
+    <!-- Obstacle avoidance -->
+    <!--     Laser based -->
+    <!--<include file="./biba_costmap.launch" />-->
+    <!--<include file="./biba_filter_odom2ptu.launch" />-->
+    <!--<include file="./biba_ptu.launch" />-->
+    <!--<include file="./biba_obsAvoid.launch" /> -->
+
+    <!-- TODO: Stereo Point clouds -->
+</launch>

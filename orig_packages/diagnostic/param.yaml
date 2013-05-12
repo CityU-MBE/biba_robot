@@ -1,0 +1,5 @@
+ip_list: [10.0.1.1 , 10.0.1.10 , 10.0.1.178]
+#ip_list: [ 129.132.39.21 ]
+dev_list: [ /dev/input/js0 , /dev/video1394/0 , /dev/tty0 ]
+ip_robot: 192.168.5.2
+

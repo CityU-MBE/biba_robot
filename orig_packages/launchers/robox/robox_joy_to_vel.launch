@@ -1,0 +1,7 @@
+<launch>
+    
+    <node name="joy_to_vel" pkg="teleoperation" type="teleop_joystick.py" >
+        <param name="robot_name" value="/robox" />
+        <param name="cmdOutput" value="/robox/cmd_vel" />
+    </node>
+</launch>

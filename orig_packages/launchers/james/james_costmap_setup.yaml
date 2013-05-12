@@ -1,0 +1,60 @@
+global_frame: /world
+robot_base_frame: /robot_base
+update_frequency: 8.0
+publish_frequency: 8.0
+
+#set if you want the voxel map published
+publish_voxel_map: true
+
+#set to true if you want to initialize the costmap from a static map
+static_map: false
+
+#begin - COMMENT these lines if you set static_map to true
+rolling_window: true
+width: 5.0
+height: 5.0
+resolution: 0.04
+#end - COMMENT these lines if you set static_map to true
+
+map_type: costmap
+#START VOXEL STUFF
+origin_z: 0.0
+z_resolution: 0.2
+z_voxels: 10
+unknown_threshold: 1
+mark_threshold: 1
+#END VOXEL STUFF
+track_unknown_space: true
+
+transform_tolerance: 0.5
+obstacle_range: 10.0
+max_obstacle_height: 2.0
+raytrace_range: 10.0
+footprint: [[0.30, 0.28], [0.30, -0.28], [-0.50, -0.28], [-0.50, 0.28]]
+#robot_radius: 0.46
+footprint_padding: 0.01
+inflation_radius: 0.55
+cost_scaling_factor: 10.0
+lethal_cost_threshold: 100
+
+
+#observation_sources: laserBottom laserTop
+#observation_sources: laserBottom 
+observation_sources: ait_stereo_007
+
+laserBottom: {data_type: LaserScan, expected_update_rate: 1.0, topic: /scanBottom,
+                sensor_frame: /laserBottom_frame,
+                observation_persistence: 0.0, marking: true, 
+                clearing: true, 
+                max_obstacle_height: 0.4, min_obstacle_height: 0.00}
+
+laserTop: {data_type: LaserScan, expected_update_rate: 1.0, topic: /scanTop,
+                sensor_frame: /laserTop_frame,
+                observation_persistence: 0.0, marking: true, 
+                clearing: true, 
+                max_obstacle_height: 4.0, min_obstacle_height: -0.20}
+
+ait_stereo_007: {data_type: PointCloud, expected_update_rate: 2.0, topic: /obst/cloud,
+                sensor_frame: /stereo_top_link,
+                observation_persistence: 0.0, marking: true, 
+                clearing: true, max_obstacle_height: 2.50, min_obstacle_height: 0.00}

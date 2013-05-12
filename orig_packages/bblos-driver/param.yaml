@@ -1,0 +1,5 @@
+biba/loshost: '10.0.1.10' 
+biba/getIntensities: 'True' # 'True' or 'False'
+biba/getMeasuredSpeed: 'False' # 'True' or 'False'
+biba/testPlatform: 'False' # 'True' or 'False'
+biba/losport: 1234

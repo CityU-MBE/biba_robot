@@ -1,0 +1,11 @@
+<launch>
+
+    <param name="confidence_threshold" value="200" />
+    <param name="intensity_threshold" value="250" />
+    <param name="dist_max" value="2000" />
+    
+    <node name="camera_pointcloud" pkg="ait_camera_PointCloud" type="CameraPointCloud">
+
+    </node>
+
+</launch>

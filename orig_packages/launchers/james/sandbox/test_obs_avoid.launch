@@ -1,0 +1,61 @@
+<launch>
+    
+    <include file="./james_costmap.launch" />
+    <include file="./james_joy.launch" />
+    <include file="./james_tf.launch" />
+    <include file="./james_hokuyo.launch" />
+    
+    
+    
+    <node name="james" pkg="bblos-driver" type="bblos_driver.py" respawn="false">
+        <param name="max_linear_vel" value="0.3" />
+        <param name="max_angular_vel" value="0.6" />
+        <param name="loshost" value="192.168.5.1" />
+        <param name="losport" value="1234" />
+        <param name="getIntensities" value="true" type="bool"/>
+        <param name="getMeasuredSpeed" value="false" type="bool"/>
+        <param name="testPlatform" value="false" type="bool"/> 
+        <param name="wheelRadius" value="0.155"/> 
+        <param name="globalFrameName" value="/world"/>
+
+        <param name="cmdInput" value="/arbiter/cmd_vel"/> 
+    </node>
+    
+    <node name="arbiter" pkg="arbiter" type="arbiter.py" >
+        <param name="robot_name" value="/james" />
+        <param name="input_manual" value="/none/none" /> 
+ 		<param name="input_auto" value="/obs_vel_filter/cmd_vel" />
+		<param name="output" value="/arbiter/cmd_vel" />
+		<param name="select" value="2" />
+		<param name="limit_count_sec" value="0.5" />
+		<param name="max_acc_x" value="0.2" />
+		<param name="max_acc_z" value="0.3" />
+		<param name="freq" value="5" />
+	</node>
+
+    <node name="obs_vel_filter" pkg="velocity_filter" type="obsAvoid_node" >
+        <param name="cmd_input" value="/joy_to_vel/cmd_vel"/>
+        <param name="cmd_output" value="/obs_vel_filter/cmd_vel" />
+        <param name="obstacle_input" value="/costmap_2d/costmap/obstacles" />
+        <param name="local_frame" value="/robot_base" />
+
+        <!-- Physical configuration -->
+        <param name="left_width" value="0.28" />
+        <param name="front_length" value="0.3" />
+        <param name="rear_length" value="0.50" />
+        <param name="security_dist" value="0.04" />
+        
+        <param name="slowing_dist_gain" value="2.00" />
+        <param name="angular_gain" value="1.50" />
+        
+        <param name="min_angular_speed" value="0.08" />
+        <param name="min_linear_speed" value="0.08" />
+       
+    </node>
+    
+    <node name="joy_to_vel" pkg="teleoperation" type="teleop_joystick.py">
+        <param name="robot_name" value="/james" />
+        <param name="cmdOutput" value="/joy_to_vel/cmd_vel" />
+	</node>
+
+</launch>

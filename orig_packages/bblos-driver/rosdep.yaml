@@ -1,0 +1,4 @@
+los-py:
+    ubuntu: |
+        cd `rospack find bblos-driver`"/Los.py-1.3/"
+        sudo python setup.py install

@@ -1,0 +1,40 @@
+<launch>
+    
+    <include file="./biba_costmap.launch" />
+    <include file="./biba_joy.launch" />
+    <include file="./biba_tf.launch" />
+    
+    <node name="joy_to_vel" pkg="teleoperation" type="teleop_joystick.py">
+        <param name="robot_name" value="/biba" />
+        <param name="cmdOutput" value="/joy_to_vel/cmd_vel" />
+	</node>
+
+    
+    <node name="biba" pkg="bblos-driver" type="bblos_driver.py" respawn="true">
+        <param name="max_linear_vel" value="0.3" />
+        <param name="max_angular_vel" value="0.6" />
+        <param name="loshost" value="10.0.1.10" /> 
+        <param name="losport" value="1234" />
+        <param name="getIntensities" value="true" type="bool"/>
+        <param name="getMeasuredSpeed" value="false" type="bool"/>
+        <param name="testPlatform" value="false" type="bool"/> 
+        <param name="wheelRadius" value="0.08"/> 
+        <param name="globalFrameName" value="/world"/>
+
+        <param name="cmdInput" value="/obs_vel_filter/cmd_vel"/> 
+    </node>
+    
+    <node name="obs_vel_filter" pkg="velocity_filter" type="obsAvoid_node" >
+        <param name="cmd_input" value="/joy_to_vel/cmd_vel"/>
+        <param name="cmd_output" value="/obs_vel_filter/cmd_vel" />
+        <param name="obstacle_input" value="/costmap_2d/costmap/obstacles" />
+        <param name="local_frame" value="/robot_base" />
+
+        <!-- Physical configuration -->
+        <param name="left_width" value="0.2" />
+        <param name="front_length" value="0.3" />
+        <param name="rear_length" value="0.3" />
+        <param name="security_dist" value="0.06" />
+
+    </node>
+</launch>

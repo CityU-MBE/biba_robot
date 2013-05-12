@@ -1,0 +1,97 @@
+<launch>
+  <!-- ******************************************************************************************* -->
+  <!-- Voronoi Navigation Controller -->
+  <!-- ******************************************************************************************* -->
+
+  <!-- Parameters -->
+  <node pkg="vn_initparams" type="vn_initparams" name="initparams" /> 
+
+  
+  <!-- Preprocessing -->
+  <node pkg="vn_runsmp" type="vn_runsmp" name="runsmp" >
+      <param name="PointCloudTopicName" value="/robox/laser" />
+  </node>
+
+  <!-- Control Laws -->	
+  <node pkg="vn_calccontrollaws" type="navigation_controller" name="VNC" >
+      <param name="CmdVelTopicName" value="/robox/cmd_vel" />
+      <param name="isPublishingTrajectory" value="true" />
+      <param name="scale_x" value="0.02" />
+      <param name="RobotContour_width" value="0.03" />
+      <param name="Trajectory_width" value="0.04" />
+
+  </node>
+
+  <!-- ******************************************************************************************* -->
+  <!-- Visualization of the point clouds and segments in rviz -->
+  <!-- ******************************************************************************************* -->
+
+  <!-- Costmap to visualize the walls  -->
+  <node name="LocalMap" pkg="costmap_2d" type="costmap_2d_node">
+      <rosparam file="smp/robox_vn_paper_costmap_params.yaml" command="load" ns="costmap" />
+  </node>
+
+  <!-- All segments colored with respect to the belonging sector -->
+  <node pkg="vn_msgs" type="SegmentToMarker" name="SectorMarker" >
+      <param name="SegmentTopicName" value="/SMP/Segments" />
+      <param name="MarkerTopicName" value="/Marker/SectorMarker" />
+      <param name="mode" value="sector" />
+      <param name="scale_x" value="0.02" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="0.0" />
+  </node>
+
+  <!-- Closest segments -->
+  <node pkg="vn_msgs" type="SegmentToMarker" name="ClosestMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/ClosestSegments" />
+      <param name="MarkerTopicName" value="/Marker/ClosestMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="0.0" />
+  </node>	
+
+  <!-- Tracked segments shown when the robot arrives at the bifurcation point (mode 1) -->
+  <node pkg="vn_msgs" type="SegmentToMarker" name="TrackedMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/TrackedSegments" />
+      <param name="MarkerTopicName" value="/Marker/TrackedMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="0.0" />
+      <param name="color_g" value="1.0" />
+      <param name="color_b" value="1.0" />
+  </node>
+ 
+  <!-- Transformed old tracked segments shown when the robot arrives at the bifurcation point (mode 1) -->
+  <node pkg="vn_msgs" type="SegmentToMarker" name="TTSMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/TransformedTrackedSegments" />
+      <param name="MarkerTopicName" value="/Marker/TransformedTrackedMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.05" />
+      <param name="color_a" value="1.0" />
+      <param name="color_r" value="1.0" />
+      <param name="color_g" value="0.0" />
+      <param name="color_b" value="1.0" />
+  </node>
+
+  <!-- Segments used to compute the control laws -->
+  <node pkg="vn_msgs" type="SegmentToMarker" name="VISMarker" >
+      <param name="SegmentTopicName" value="/GetVIS/VISegments" />
+      <param name="MarkerTopicName" value="/Marker/VISMarker" />
+      <param name="mode" value="standard" />
+      <param name="scale_x" value="0.04" />
+      <param name="color_a" value="0.5" />
+      <param name="color_r" value="0.0" />
+      <param name="color_g" value="0.0" />
+      <param name="color_b" value="0.0" />
+  </node>
+
+
+</launch>
+  
+ 

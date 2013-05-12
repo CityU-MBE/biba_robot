@@ -1,0 +1,5 @@
+<launch>
+	<param name="ait_dir" value="$(find ait_usb_camera_driver)" />
+	<node name="tiltTopCam" pkg="ait_usb_camera_driver" type="driver_with_esvs" args="007 1 stereo_top_link"  respawn="false"/>
+
+</launch>

@@ -1,0 +1,22 @@
+<package>
+  <description brief="bblos-driver">
+
+     bblos-driver
+
+  </description>
+  <author>Cedric Pradalier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bblos-driver</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="roscpp"/>
+  <depend package="nav_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="tf"/>
+  <rosdep name="los-py"/>
+
+</package>
+
+

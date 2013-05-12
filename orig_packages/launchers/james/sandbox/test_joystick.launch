@@ -1,0 +1,7 @@
+<launch>
+    <include file="./james_joy.launch" />
+    <include file="./james_joy_to_vel.launch" />
+    <include file="./james_bblos.launch" />
+    <include file="./james_arbiter.launch" />
+
+</launch>

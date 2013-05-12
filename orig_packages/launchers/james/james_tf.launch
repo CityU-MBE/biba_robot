@@ -1,0 +1,30 @@
+<launch>
+
+<!-- 
+*************** Transformation frames ***************
+Note: need to have the node bblos-driver(bblos_driver)
+which provide:
+/world          -> /robot_base
+
+-->
+
+<!-- Cameras -->
+    <node name="TopCamera_static_tf"  pkg="tf" type="static_transform_publisher"  
+        args="-0.21 0 1.145 -1.57 0 -2.115593 robot_base stereo_top_link 100" />
+    
+    <node name="CenterCamera_static_tf"  pkg="tf" type="static_transform_publisher"  
+        args="-0.24 0 0.745 -1.57 0 -1.57 robot_base stereo_mid_link 100" />
+    
+    <node name="omni_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="  0.00    0.00    1.495    0.00    0.00    0.00    robot_base  omni_cam    100" >
+	</node>
+    
+<!-- Lasers -->
+    <node name="Bottom_static_tf"  pkg="tf" type="static_transform_publisher"  
+        args="0.22 0 0.03 0 0 0 robot_base laserBottom_frame 100" />
+
+    <node name="TopHokuyo_static_tf"  pkg="tf" type="static_transform_publisher"  
+        args="-0.19 0 1.33 0 0.59 0 robot_base laserTop_frame 100" />
+    
+   
+</launch>

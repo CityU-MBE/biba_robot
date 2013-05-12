@@ -1,0 +1,7 @@
+uint32 disabled=0
+uint32 manual=1
+uint32 autom=2
+
+uint16 input
+---
+int32 result

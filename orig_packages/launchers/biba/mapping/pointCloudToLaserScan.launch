@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="pointCloudToLaserScan" type="pointCloudToLaserScan" name="pointCloudToLaserScan">
+      <param name="lasertopic" value = "/biba/laser"/>
+      <param name="frame_id" value = "/laser"/>
+  </node>
+
+
+</launch>

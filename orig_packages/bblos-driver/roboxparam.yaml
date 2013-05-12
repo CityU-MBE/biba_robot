@@ -1,0 +1,6 @@
+
+robox/loshost: '172.30.50.243'
+robox/getIntensities: 'False' # 'True' or 'False'
+robox/getMeasuredSpeed: 'False' # 'True' or 'False'
+robox/testPlatform: 'False' # 'True' or 'False'
+robox/losport: 1234

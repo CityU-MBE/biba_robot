@@ -1,0 +1,24 @@
+<launch>
+    <include file="./james_tf.launch" />
+    <include file="./james_joy.launch" />
+    <include file="./james_joy_to_vel.launch" />
+    <include file="./james_bblos.launch" />
+    <include file="./james_arbiter.launch" />
+    <!-- TODO: adjust that: <include file="./james_diagnostic.launch" />  -->
+    <include file="./james_hokuyo.launch" />
+
+    <!-- Obstacle avoidance -->
+    <!--     Laser based -->
+    <include file="./james_costmap.launch" />
+    <include file="./james_obsAvoid.launch" /> 
+
+    <!-- Omni cam -->
+     <include file="./james_1394.launch" />
+    
+    <!-- TODO: Stereo Point clouds -->
+    
+    <include file="./james_usb_center_cam.launch" />
+    <include file="./james_usb_top_cam.launch" />
+    <include file="./james_groundplanedetektor.launch" />
+    
+</launch>

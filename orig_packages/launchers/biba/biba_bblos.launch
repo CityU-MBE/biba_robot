@@ -1,0 +1,18 @@
+<launch>
+    
+        <node name="biba" pkg="bblos-driver" type="bblos_driver.py">
+	    <param name="max_linear_vel" value="0.3" />
+        <param name="max_angular_vel" value="0.6" />
+        <param name="loshost" value="10.0.1.10" /> 
+        <param name="losport" value="1234" />
+        <param name="getIntensities" value="true" type="bool"/>
+        <param name="getMeasuredSpeed" value="false" type="bool"/>
+        <param name="testPlatform" value="false" type="bool"/> 
+        <param name="wheelRadius" value="0.09"/> 
+        <param name="globalFrameName" value="/world"/>
+
+        <!-- For direct joystick control -->
+        <param name="cmdInput" value="/arbiter/cmd_vel"/> 
+    </node>
+
+</launch>

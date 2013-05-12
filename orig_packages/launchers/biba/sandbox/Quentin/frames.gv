@@ -1,0 +1,14 @@
+digraph G {
+"/world" -> "/robot_base"[label="Broadcaster: /biba\nAverage rate: 9.765 Hz\nMost recent transform: 0.001 sec old \nBuffer length: 4.915 sec\n"];
+"/robot_base" -> "/omni_cam"[label="Broadcaster: /omni_tf_broadcaster\nAverage rate: 10.006 Hz\nMost recent transform: -0.009 sec old \nBuffer length: 4.797 sec\n"];
+"/robot_base" -> "/ptu_base"[label="Broadcaster: /ptu_base_tf_broadcaster\nAverage rate: 10.106 Hz\nMost recent transform: -0.063 sec old \nBuffer length: 4.849 sec\n"];
+"/ptu_head" -> "/stereo"[label="Broadcaster: /stero_tf_broadcaster\nAverage rate: 10.104 Hz\nMost recent transform: -0.064 sec old \nBuffer length: 4.849 sec\n"];
+"/ptu_tilt_joint" -> "/ptu_head"[label="Broadcaster: /ptu46_175\nAverage rate: 10.209 Hz\nMost recent transform: 0.071 sec old \nBuffer length: 4.800 sec\n"];
+"/robot_base" -> "/laser"[label="Broadcaster: /laser_tf_broadcaster\nAverage rate: 10.107 Hz\nMost recent transform: -0.063 sec old \nBuffer length: 4.848 sec\n"];
+"/ptu_pan_joint" -> "/ptu_tilt_joint"[label="Broadcaster: /ptu46_175\nAverage rate: 10.209 Hz\nMost recent transform: 0.071 sec old \nBuffer length: 4.800 sec\n"];
+"/ptu_base" -> "/ptu_pan_joint"[label="Broadcaster: /ptu46_175\nAverage rate: 10.209 Hz\nMost recent transform: 0.071 sec old \nBuffer length: 4.800 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1273667998.339"[ shape=plaintext ] ;
+ }->"/world";
+}

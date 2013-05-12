@@ -1,0 +1,51 @@
+global_frame: /laser
+robot_base_frame: /laser
+update_frequency: 10.0
+publish_frequency: 10.0
+
+#set if you want the voxel map published
+publish_voxel_map: false
+
+#set to true if you want to initialize the costmap from a static map
+static_map: false
+
+#begin - COMMENT these lines if you set static_map to true
+rolling_window: true
+width: 10.0
+height: 10.0
+resolution: 0.10
+#end - COMMENT these lines if you set static_map to true
+
+map_type: costmap
+#START VOXEL STUFF
+origin_z: 0.0
+z_resolution: 0.2
+z_voxels: 10
+unknown_threshold: 10
+mark_threshold: 10
+#END VOXEL STUFF
+#track_unknown_space: true
+
+transform_tolerance: 0.3
+obstacle_range: 10
+max_obstacle_height: 2.0
+raytrace_range: 3.0
+footprint: [[ 0.13, 0.31], [ 0.31, 0.13], [ 0.31, -0.13], [ 0.13, -0.31], [ -0.13, -0.31], [ -0.31, -0.13], [ -0.31, 0.13], [ -0.13, 0.31]]
+#robot_radius: 0.46
+footprint_padding: 0.01
+inflation_radius: 0.55
+cost_scaling_factor: 10.0
+lethal_cost_threshold: 100
+
+
+observation_sources: sick_node
+sick_node: {data_type: PointCloud, expected_update_rate: 0.4, topic: /robox/laser,
+        sensor_frame: /laser,
+        observation_persistence: 0.0, marking: true, 
+        clearing: true, max_obstacle_height: 0.4, min_obstacle_height: 0.00}
+
+
+
+#points of the octagon (robots shape)
+
+

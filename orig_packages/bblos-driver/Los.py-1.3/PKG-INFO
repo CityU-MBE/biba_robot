@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: Los.py
+Version: 1.3
+Summary: Lightweight object streaming for Python
+Home-page: http://igor.sbbx/dev/browser/Lib/Los.py
+Author: BlueBotics SA
+Author-email: support@bluebotics.com
+License: All rights reserved
+Download-URL: http://igor.sbbx/dev/browser/Lib/Los.py
+Description: Los.py is the Python implementation of LOS, the Lightweight Object
+        Streaming protocol.
+        
+Keywords: communication,protocol,object,streaming
+Platform: MacOS X
+Platform: POSIX
+Platform: Win32
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Communications

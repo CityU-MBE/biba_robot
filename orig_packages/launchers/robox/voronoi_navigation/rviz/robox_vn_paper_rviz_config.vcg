@@ -1,0 +1,151 @@
+Background\ ColorR=1
+Background\ ColorG=1
+Background\ ColorB=1
+Fixed\ Frame=/laser
+Target\ Frame=/laser
+ClosestSegments.Enabled=0
+ClosestSegments.Marker\ Topic=/Marker/ClosestMarker
+Grid.Alpha=0.5
+Grid.Cell\ Size=1
+Grid.ColorR=0
+Grid.ColorG=0
+Grid.ColorB=0
+Grid.Enabled=0
+Grid.Line\ Style=0
+Grid.Line\ Width=0.03
+Grid.Normal\ Cell\ Count=0
+Grid.OffsetX=0
+Grid.OffsetY=0
+Grid.OffsetZ=0
+Grid.Plane=0
+Grid.Plane\ Cell\ Count=30
+Grid.Reference\ Frame=<Fixed Frame>
+MinDistToSeg.Enabled=1
+MinDistToSeg.Marker\ Topic=/Marker/MinDist
+MinDistToSeg.MinDistSeg=1
+Obstacle\ Grid.Alpha=1
+Obstacle\ Grid.ColorR=0
+Obstacle\ Grid.ColorG=0
+Obstacle\ Grid.ColorB=0
+Obstacle\ Grid.Enabled=0
+Obstacle\ Grid.Topic=/LocalMap/costmap/obstacles
+Point\ Cloud.Alpha=1
+Point\ Cloud.Autocompute\ Intensity\ Bounds=1
+Point\ Cloud.Billboard\ Size=0.01
+Point\ Cloud.Channel=0
+Point\ Cloud.Decay\ Time=0
+Point\ Cloud.Enabled=1
+Point\ Cloud.Max\ ColorR=0
+Point\ Cloud.Max\ ColorG=0
+Point\ Cloud.Max\ ColorB=0
+Point\ Cloud.Max\ Intensity=0
+Point\ Cloud.Min\ ColorR=0
+Point\ Cloud.Min\ ColorG=0
+Point\ Cloud.Min\ ColorB=0
+Point\ Cloud.Min\ Intensity=0
+Point\ Cloud.Selectable=1
+Point\ Cloud.Style=1
+Point\ Cloud.Topic=/robox/laser
+RobotContour.Enabled=1
+RobotContour.Marker\ Topic=/Marker/RobotContour
+RobotContour.robot_contour=1
+SegmentsInSectors.Enabled=1
+SegmentsInSectors.Marker\ Topic=/Marker/SectorMarker
+SegmentsInSectors.Sector1=1
+SegmentsInSectors.Sector2=1
+SegmentsInSectors.Sector3=1
+TF.All\ Enabled=1
+TF.Enabled=0
+TF.Show\ Arrows=1
+TF.Show\ Axes=1
+TF.Show\ Names=1
+TF.Update\ Rate=0
+TrackedSegments.Enabled=0
+TrackedSegments.Marker\ Topic=/Marker/TrackedMarker
+Trajectory\ Mode\ 0.Enabled=1
+Trajectory\ Mode\ 0.Marker\ Topic=/Marker/Trajectory_mode_0
+Trajectory\ Mode\ 0.trajectory=1
+Trajectory\ Mode\ 1.Enabled=1
+Trajectory\ Mode\ 1.Marker\ Topic=/Marker/Trajectory_mode_1
+Trajectory\ Mode\ 1.trajectory=1
+Trajectory\ Mode\ 2.Enabled=1
+Trajectory\ Mode\ 2.Marker\ Topic=/Marker/Trajectory_mode_2
+Trajectory\ Mode\ 2.trajectory=1
+Trajectory\ Mode\ 3.Enabled=1
+Trajectory\ Mode\ 3.Marker\ Topic=/Marker/Trajectory_mode_3
+Trajectory.Enabled=0
+Trajectory.Marker\ Topic=/Marker/Trajectory
+TransformedTrackedSegments.Enabled=0
+TransformedTrackedSegments.Marker\ Topic=/Marker/TransformedTrackedMarker
+VISegments.Enabled=0
+VISegments.Marker\ Topic=/Marker/VISMarker
+VISegments.segments=1
+Tool\ 2D\ Nav\ GoalTopic=goal
+Tool\ 2D\ Pose\ EstimateTopic=initialpose
+Camera\ Type=rviz::FixedOrientationOrthoViewController
+Camera\ Config=96.4585 -0.0972393 24.9852 -0.114098 -0.706391 -0.0318096 -0.0318096 0.706391
+Property\ Grid\ State=selection=Point Cloud.Enabled.Point Cloud.Max Color;expanded=Grid.Enabled.Grid.StatusTopStatus,TF.Enabled.TF.StatusTopStatus,TF.Enabled.TF.Tree,Point Cloud.Enabled,SegmentsInSectors.Enabled.SegmentsInSectors.StatusTopStatus,SegmentsInSectors.Enabled.SegmentsInSectors.Namespaces,ClosestSegments.Enabled.ClosestSegments.StatusTopStatus,ClosestSegments.Enabled.ClosestSegments.Namespaces,TrackedSegments.Enabled.TrackedSegments.StatusTopStatus,TrackedSegments.Enabled.TrackedSegments.Namespaces,TransformedTrackedSegments.Enabled.TransformedTrackedSegments.StatusTopStatus,TransformedTrackedSegments.Enabled.TransformedTrackedSegments.Namespaces,VISegments.Enabled.VISegments.StatusTopStatus,VISegments.Enabled.VISegments.Namespaces,RobotContour.Enabled.RobotContour.StatusTopStatus,RobotContour.Enabled.RobotContour.Namespaces,Trajectory Mode 0.Enabled.Trajectory Mode 0.StatusTopStatus,Trajectory Mode 0.Enabled.Trajectory Mode 0.Namespaces,Trajectory Mode 1.Enabled.Trajectory Mode 1.StatusTopStatus,Trajectory Mode 1.Enabled.Trajectory Mode 1.Namespaces,Trajectory Mode 2.Enabled.Trajectory Mode 2.StatusTopStatus,Trajectory Mode 2.Enabled.Trajectory Mode 2.Namespaces,Trajectory Mode 3.Enabled.Trajectory Mode 3.StatusTopStatus,Trajectory Mode 3.Enabled.Trajectory Mode 3.Namespaces,Trajectory.Enabled.Trajectory.StatusTopStatus,Trajectory.Enabled.Trajectory.Namespaces,MinDistToSeg.Enabled.MinDistToSeg.StatusTopStatus,MinDistToSeg.Enabled.MinDistToSeg.Namespaces;scrollpos=0,0;splitterpos=133,266;ispageselected=1
+[Display0]
+Name=Grid
+Package=rviz
+ClassName=rviz::GridDisplay
+[Display1]
+Name=TF
+Package=rviz
+ClassName=rviz::TFDisplay
+[Display2]
+Name=Point Cloud
+Package=rviz
+ClassName=rviz::PointCloudDisplay
+[Display3]
+Name=SegmentsInSectors
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display4]
+Name=ClosestSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display5]
+Name=TrackedSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display6]
+Name=TransformedTrackedSegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display7]
+Name=VISegments
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display8]
+Name=Obstacle Grid
+Package=rviz
+ClassName=rviz::GridCellsDisplay
+[Display9]
+Name=RobotContour
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display10]
+Name=Trajectory Mode 0
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display11]
+Name=Trajectory Mode 1
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display12]
+Name=Trajectory Mode 2
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display13]
+Name=Trajectory Mode 3
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display14]
+Name=Trajectory
+Package=rviz
+ClassName=rviz::MarkerDisplay
+[Display15]
+Name=MinDistToSeg
+Package=rviz
+ClassName=rviz::MarkerDisplay

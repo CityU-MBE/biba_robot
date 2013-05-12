@@ -1,0 +1,24 @@
+<launch>
+    <node name="obs_vel_filter" pkg="velocity_filter" type="obsAvoid_node" >
+        <param name="cmd_input" value="/homing/cmd"/>
+        <param name="cmd_output" value="/obs_vel_filter/cmd_vel" />
+        <param name="obstacle_input" value="/costmap_2d/costmap/obstacles" />
+        <param name="local_frame" value="/robot_base" />
+
+        <!-- Physical configuration -->
+        <param name="left_width" value="0.28" />
+        <param name="front_length" value="0.3" />
+        <param name="rear_length" value="0.50" />
+        <param name="security_dist" value="0.03" />
+        
+        <param name="slowing_dist_gain" value="2.00" />
+        <param name="angular_gain" value="1.50" />
+        
+        <param name="min_angular_speed" value="0.08" />
+        <param name="min_linear_speed" value="0.10" />
+
+    </node>
+  
+   
+</launch>
+

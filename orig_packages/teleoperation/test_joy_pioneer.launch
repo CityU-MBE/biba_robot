@@ -1,0 +1,28 @@
+<launch>
+
+	<node name="joy" pkg="joy" type="joy_node" >
+		<param name="joy/dev" value="/dev/input/js1" />
+		<param name="joy/autorepeat_rate" value="1.0" />
+	</node>
+
+	<node name="teleop" pkg="teleoperation" type="teleop_joystick.py" args="-n pioneer"/>
+
+	<node name="pioneer" pkg="pioneer3dx_driver" type="driver" >
+		<param name="pioneer/max_linear_vel" value="0.3" />
+		<param name="pioneer/max_angular_vel" value="0.5" />
+	</node>
+
+	<node name="odom_broadcaster" pkg="odom_tf" type="odom_broadcaster.py" >
+		<param name="odom_broadcaster/robotName" value="pioneer" />
+	</node>
+	
+	<!-- Configuration for sensor positions-->
+	<node  name="stero_tf_broadcaster" pkg="tf" type="static_transform_publisher" 
+		args="0.075 0.075 1.23 0 0.63 0 odom camera_frame 100" />
+		
+	<node name="omni_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="0 0 0.59 0 0 0 odom omni_frame 100" />	
+		
+	<node name="laser_tf_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="0.175 0 0.2 0 0 0 odom laser_frame 100" />
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+	<node name="filter_odom2ptu" pkg="filter_odom2ptu" type="filter_odom2ptu.py" >
+        <param name="vel_input" value="/arbiter/cmd_vel" />
+		<param name="ptu_name" value="/ptu46_175" />
+        
+        <param name="max_pan_ang" value="1.55" />
+		<!--<param name="max_tilt_ang" value="0.83" />-->
+		<param name="max_tilt_ang" value="-0.05" />
+        
+        <param name="max_lin_vel" value="0.6" />
+		<param name="max_ang_vel" value="1.0" />
+        
+		<param name="min_delta_ang_vel" value="0.05" />
+	</node>
+
+</launch>
+

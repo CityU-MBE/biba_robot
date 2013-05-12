@@ -1,0 +1,18 @@
+<!-- starts the camera used for localization -->
+<launch>  
+  <param name="display" type="int" value="0"/>
+  <param name="framerate" type="double" value="15"/>
+<!--   <param name="cameraguid" value="b09d01006c5a5a"/> -->
+
+   <param name="mode" value="MODE_640x480_MONO"/> 
+<!--  <param name="gain" type="double" value="200"/>
+  <param name="exposure" type="double" value="400"/>
+  <param name="contrast" type="double" value="1463"/>
+  <param name="compression" type="str" value="jpeg"/> 
+  <param name="colorfilter" type="str" value="COLOR_FILTER_BGGR"/>
+-->
+  <node name="cameradc1394" pkg="cameradc1394" type="cameradc1394" respawn="false">
+        <remap from="image" to="omni_image"/>
+        <remap from="image_raw" to="omni_image_raw"/>
+  </node>
+</launch>

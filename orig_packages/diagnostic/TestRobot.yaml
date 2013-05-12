@@ -1,0 +1,27 @@
+analyzers:
+  computers:
+    type: GenericAnalyzer
+    path: Computers
+    contains: [
+      'HD Temp',
+      'CPU Usage',
+      'CPU Temperature',
+      'CPU Battery',     
+      'HD Usage',
+      'NFS',
+      'Robot'
+      ]
+  network:
+    type: GenericAnalyzer
+    path: Network
+    contains: [
+    'Network'
+    ]
+
+  device:
+    type: GenericAnalyzer
+    path: Device
+    contains: [
+    'Device'
+    ]
+

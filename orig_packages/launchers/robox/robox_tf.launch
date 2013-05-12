@@ -1,0 +1,15 @@
+<launch>
+
+<!-- 
+*************** Transformation frames ***************
+Note: need to have the node bblos-driver(bblos_driver)
+which provide:
+/world          -> /robot_base
+
+-->
+    
+    <node name="laser_tf_broadcaster" pkg="tf" type="static_transform_publisher"
+		args="  0.00    0.00    0.04    0.00    0.00    0.00    robot_base  laser       100" />	
+    
+
+</launch>

@@ -1,0 +1,18 @@
+<launch>
+    
+    <node name="robox" pkg="bblos-driver" type="bblos_driver.py" >
+	<param name="max_linear_vel" value="0.4" />
+        <param name="max_angular_vel" value="0.6" />
+	<param name="loshost" value="172.30.50.243" />
+        <param name="losport" value="1234" />
+        <param name="getIntensities" value="true" type="bool"/>
+        <param name="getMeasuredSpeed" value="false" type="bool"/>
+        <param name="testPlatform" value="false" type="bool"/> 
+        <param name="wheelRadius" value="0.08"/> 
+        <param name="globalFrameName" value="/world"/>
+
+        <!-- For direct joystick control -->
+        <param name="cmdInput" value="/robox/cmd_vel"/> 
+    </node>
+    
+</launch>
