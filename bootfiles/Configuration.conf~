@@ -1,0 +1,5 @@
+Var.Set  Model.sdMax=0.3~
+Var.Set  Model.thetadMax=2.0~
+Var.Set  NVRam.Geometry.wheelDistance=0.195~
+Var.Set  NVRam.Geometry.wheelRadiusLeft=0.09~
+Var.Set  NVRam.Geometry.wheelRadiusRight=0.09~
